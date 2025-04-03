@@ -1,8 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Vacation.Web.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var conn = builder.Configuration.GetConnectionString("DefaultCon");
 
+builder.Services.AddDbContext<VacationDBContext>(
+    options => options.UseSqlServer(conn)
+    );
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
