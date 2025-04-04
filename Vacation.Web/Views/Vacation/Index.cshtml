@@ -1,0 +1,152 @@
+﻿@* @model IEnumerable<Vacation.Web.Models.RequestMasterVacation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VacationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Approve)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateApprove)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationType.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approve)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateApprove)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
+
+<div class="main">
+  
+    <main class="p-3">
+        <div class="container-fluid">
+            <div class="mb-3 text-center">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Employee Name</th>
+                            <th scope="col">Request Date</th>
+                            <th scope="col">Vacations</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Approve</th>
+                            <th scope="col">Events</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mdo</td>
+                            <td>
+
+
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+
+
+                            </td>
+                            <td>
+                                <a class="btn btn-info" href="EditVacationRequest.html">Edit</a>
+                                <a class="btn btn-danger" href="EditVacationRequest.html">Delete</a>
+
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>fat</td>
+                            <td>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+
+                            </td>
+                            <td>
+
+
+                                <a class="btn btn-info" href="EditVacationRequest.html">Edit</a>
+                                <a class="btn btn-danger" href="EditVacationRequest.html">Delete</a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>twitter</td>
+                            <td>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+
+                            </td>
+                            <td>
+
+                                <a class="btn btn-info" href="EditVacationRequest.html">Edit</a>
+                                <a class="btn btn-danger" href="EditVacationRequest.html">Delete</a>
+
+
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>

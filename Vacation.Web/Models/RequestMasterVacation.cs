@@ -26,6 +26,6 @@ namespace Vacation.Web.Models
         public DateTime DateApprove { get; set; }
 
         public string? Notes { get; set; }
-        public List<RequestDetailsVacation> RequestDetailsVacation { get; set; }
+        public List<RequestDetailsVacation> RequestDetailsVacation { get; set; }=new List<RequestDetailsVacation>();
     }
 }

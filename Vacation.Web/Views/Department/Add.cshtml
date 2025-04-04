@@ -1,0 +1,59 @@
+﻿@model Vacation.Web.Models.Department
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+@* <h1>Add</h1>
+
+<h4>Department</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
+<div class="main">
+  
+    <main class="p-3">
+        <div class="container-fluid">
+            <div class="mb-3 w-50">
+                <form>
+                    <div class="form-group mt-2">
+                        <label for="exampleInputEmail1">Department Name</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                    </div>
+
+
+
+
+                    <button type="submit" class="btn btn-primary  mt-4">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

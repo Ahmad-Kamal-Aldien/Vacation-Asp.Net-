@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@* <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -47,3 +47,159 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+ *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Vacation.Web</title>
+    
+
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+ 
+  
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+ 
+    <link href="~/css/spectrum.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Vacation.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar-toggle">
+            <div class="sidebar-logo">
+                <a href="#">Vacation</a>
+            </div>
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav p-0">
+
+                <li class="sidebar-item">
+                    <a  asp-action="index" asp-controller="Dashboard" class="sidebar-link">
+                        <i class="lni lni-user"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a  asp-controller="Department" asp-action="Index" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>Department</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a asp-controller="Empolyee" asp-action="index" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>Employee</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a  asp-controller="VacationType" asp-action="Index" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>Vacation Type</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a asp-controller="Vacation" asp-action="RequestVacation" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>Request Vacation</span>
+                    </a>
+                </li>
+                
+                <li class="sidebar-item">
+                    <a  asp-controller="Vacation" asp-action="Index" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>All Request</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="lni lni-agenda"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+
+
+
+            </ul>
+            <!-- Sidebar Navigation Ends -->
+
+        </aside>
+        <!-- Sidebar Ends -->
+        <!-- Main Component -->
+        <div class="main">
+            <nav class="navbar navbar-expand">
+                <button class="toggler-btn" type="button">
+                    <i class="lni lni-text-align-left"></i>
+                </button>
+            </nav>
+            <main class="p-3">
+                <div class="container-fluid">
+                    <div class="mb-3 text-center">
+                        @RenderBody()
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+   
+
+ 
+
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/spectrum.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

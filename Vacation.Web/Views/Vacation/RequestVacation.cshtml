@@ -1,0 +1,165 @@
+﻿@* @model Vacation.Web.Models.RequestMasterVacation
+
+@{
+    ViewData["Title"] = "RequestVacation";
+}
+
+<h1>RequestVacation</h1>
+
+<h4>RequestMasterVacation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RequestVacation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmpId" class="control-label"></label>
+                <select asp-for="EmpId" class ="form-control" asp-items="ViewBag.EmpId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VacationTypeId" class="control-label"></label>
+                <select asp-for="VacationTypeId" class ="form-control" asp-items="ViewBag.VacationTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="From" class="control-label"></label>
+                <input asp-for="From" class="form-control" />
+                <span asp-validation-for="From" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="To" class="control-label"></label>
+                <input asp-for="To" class="form-control" />
+                <span asp-validation-for="To" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Approve" /> @Html.DisplayNameFor(model => model.Approve)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateApprove" class="control-label"></label>
+                <input asp-for="DateApprove" class="form-control" />
+                <span asp-validation-for="DateApprove" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@
+
+<div class="main">
+    
+    <main class="p-3">
+        <div class="container-fluid">
+            <div class="mb-3 text-center">
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Enter Name</span>
+                    </div>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    <button type="button" class="btn btn-success">Search</button>
+
+
+
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Start Date</span>
+                    </div>
+
+                    <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">End Date</span>
+                    </div>
+                    <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+
+
+                </div>
+
+                <div class="input-group m-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Saturday
+                        </label>
+
+
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Saturday
+                        </label>
+
+
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Saturday
+                        </label>
+
+
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Saturday
+                        </label>
+
+
+                    </div>
+                </div>
+                <div class="input-group mt-3">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select vacation type</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Notes</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </main>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
