@@ -43,27 +43,41 @@
 }
  *@
 
-
+ @model Vacation.Web.Models.VacationType
 <div class="main">
   
     <main class="p-3">
         <div class="container-fluid">
             <div class="mb-3 w-50">
-                <form>
+                <form asp-action="Add">
+
+
                     <div class="form-group mt-2">
                         <label for="exampleInputEmail1">Vacation Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                        <input type="text" class="form-control" asp-for="Name"
+                        id="exampleInputEmail1"  placeholder="Enter Name">
                     </div>
-                    <div class="form-group  mt-2">
+
+
+                   @*  <div class="form-group  mt-2">
                         <label for="exampleInputPassword1">Vacation Color</label>
                         <input type='text' id="custom" />
-                        <input type="number" class="form-control"
+                        <input type="number" class="form-control" 
                                id="exampleInputPassword1" placeholder="Enter Color">
+                    </div> *@
+
+                    <div class="form-group  mt-2">
+                        <label for="exampleInputPassword1">Vacation Color</label>
+                        @* <input type='text' id="custom" /> *@
+                        <input class="form-control" type='text' asp-for="Color" id="Color"
+                                placeholder=" Color">
                     </div>
+
+
 
                     <div class="form-group  mt-2">
                         <label for="exampleInputPassword1">Number Of Days</label>
-                        <input type="number" class="form-control"
+                        <input type="number" class="form-control" asp-for="NumberOfDays"
                                id="exampleInputPassword1" placeholder="Enter Count">
                     </div>
 

@@ -10,7 +10,7 @@ namespace Vacation.Web.Models
 
         [ForeignKey("Department")]
         public int DeptId { get; set; }
-        public Department Department { get; set; }
+        public Department? Department { get; set; }
 
         [Range(1,31)]
         public int CountDayVacation { get; set; }

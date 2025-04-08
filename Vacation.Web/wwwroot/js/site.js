@@ -9,8 +9,10 @@ toggler.addEventListener("click", function () {
 
 
 
-$("#custom").spectrum({
+$("#Color").spectrum({
     color: "#f00",
     showInput: true,
     preferredFormat: "hex",
 });
+
+$("#Color").show();

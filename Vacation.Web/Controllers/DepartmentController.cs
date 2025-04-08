@@ -30,6 +30,7 @@ namespace Vacation.Web.Controllers
             
                 _db.Add(department);
                 _db.SaveChanges();  
+                return RedirectToAction("Index");
             }
             return View(department);
         }

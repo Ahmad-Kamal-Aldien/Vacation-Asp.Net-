@@ -38,16 +38,21 @@
     <main class="p-3">
         <div class="container-fluid">
             <div class="mb-3 w-50">
-                <form>
+                <form asp-action="Add">
                     <div class="form-group mt-2">
-                        <label for="exampleInputEmail1">Department Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                        <label for="txt"> Name</label>
+                        <input type="text" class="form-control" asp-for="Name" id="txt"
+                        placeholder="Enter Name">
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label for="desc">Description</label>
+                        <input type="text" class="form-control" asp-for="Description" id="desc"
+                               placeholder="Enter Name">
                     </div>
 
 
-
-
-                    <button type="submit" class="btn btn-primary  mt-4">Submit</button>
+                    <button type="submit" class="btn btn-primary  mt-4">Save</button>
                 </form>
             </div>
         </div>

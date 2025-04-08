@@ -42,31 +42,32 @@
 }
  @* *@
 
-
+@model Vacation.Web.Models.Employee
 <div class="main">
    
     <main class="p-3">
         <div class="container-fluid">
             <div class="mb-3 w-50">
 
-                <form>
+                <form asp-action="Add">
                     <div class="form-group mt-2">
-                        <label for="exampleInputEmail1">Employee Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                        <label for="txtname">Employee Name</label>
+                        <input type="text" class="form-control"  asp-for="Name"
+                               id="txtname"
+                               placeholder="Enter Name">
                     </div>
                     <div class="form-group  mt-2">
-                        <label for="exampleInputPassword1">Count Vacation</label>
+                        <label for="txtnum">Count Vacation</label>
                         <input type="number" class="form-control"
-                               id="exampleInputPassword1" placeholder="Enter Count">
+                               id="txtnum" placeholder="Enter Count" asp-for="CountDayVacation">
                     </div>
                     <div class="form-group  mt-2">
                         <label for="exampleInputPassword1">Department</label>
 
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" aria-label="Default select example" asp-for="DeptId"
+                                asp-items="@(new SelectList(ViewBag.Department,"Id","Name"))">
+                            <option value="" selected>Select Department</option>
+                         
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary  mt-4">Submit</button>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Runtime.Intrinsics.Arm;
+using Microsoft.AspNetCore.Mvc;
 using Vacation.Web.Models;
 
 namespace Vacation.Web.Controllers
@@ -15,9 +16,30 @@ namespace Vacation.Web.Controllers
             return View(_db.vacationTypes.ToList());
         }
 
+        
+        public IActionResult GetNames()
+        {
+            var getData = _db.vacationTypes.ToList();
+
+            return Json(getData);
+        }
+
+
         public IActionResult Add()
         {
             return View();
+        }
+        [HttpPost]
+
+        public IActionResult Add(VacationType vacation)
+        {
+            if (ModelState.IsValid) { 
+            _db.vacationTypes.Add(vacation);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(vacation);
         }
     }
 }

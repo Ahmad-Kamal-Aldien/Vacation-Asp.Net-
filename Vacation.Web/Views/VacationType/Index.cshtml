@@ -23,7 +23,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr style="background-color:@item.Color">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
