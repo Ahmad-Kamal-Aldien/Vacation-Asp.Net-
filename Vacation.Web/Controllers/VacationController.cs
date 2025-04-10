@@ -14,12 +14,7 @@ namespace Vacation.Web.Controllers
         }
         public IActionResult Index()
         {
-             //< th scope = "col" > Employee Name </ th >
-             //               < th scope = "col" > Request Date </ th >
-             //               < th scope = "col" > Vacations </ th >
-             //               < th scope = "col" > Comments </ th >
-             //               < th scope = "col" > Approve </ th >
-             //               < th scope = "col" > Events </ th >
+           
 
 
             return View(_db.requestMasterVacations.Include(x=>x.Employee).Include(x=>x.VacationType).ToList());
@@ -39,25 +34,10 @@ namespace Vacation.Web.Controllers
         public IActionResult RequestVacation(RequestDetailsVacation requestDetailsVacation, int[]days
             )
         {
-            //requestDetailsVacation.MasterVacation.Id = 10;
-
-
-
+          
             for (DateTime i = requestDetailsVacation.MasterVacation.From; i < requestDetailsVacation.MasterVacation.To;
                 i=i.AddDays(1))
             {
-
-                ////يومه في الاسبوع ايه
-                //if (Array.IndexOf(days, (int)i.DayOfWeek) != -1)
-                //{
-                //    requestDetailsVacation.Id = 0;
-                //    requestDetailsVacation.VacationDate = i;
-                //    _db.requestDetailsVacations.Add(requestDetailsVacation);
-                //    _db.SaveChanges();
-                //}
-
-
-                //يومه في الاسبوع ايه
                 if (Array.IndexOf(days, (int)i.DayOfWeek)!=-1 )
                 {
                     requestDetailsVacation.Id = 0;
@@ -75,15 +55,39 @@ namespace Vacation.Web.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var data = _db.requestMasterVacations.Where(x => x.Id == id).Include(x => x.Employee).Include(x => x.RequestDetailsVacation).FirstOrDefault();
+            return View(data);
+        }
+        [HttpPost]
+        //If I Want Edit In One Value Only
+        public IActionResult Edit(RequestMasterVacation requestMasterVacation)
+        {
+      
+            if (requestMasterVacation.Approve == true)
+            {
+                _db.Attach(requestMasterVacation);
+                requestMasterVacation.Approve = true;
+                _db.Entry(requestMasterVacation).Property(x=>x.Approve).IsModified=true;
 
-        public IActionResult Edit()
+         
+                _db.SaveChanges();
+            }
+          
+           
+            return RedirectToAction("Index");
+        }
+
+
+
+        public IActionResult Delete(int id)
         {
             return View();
         }
 
-       
 
-        
 
     }
 }
