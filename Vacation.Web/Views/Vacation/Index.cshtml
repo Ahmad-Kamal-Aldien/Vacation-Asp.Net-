@@ -70,7 +70,7 @@
     </tbody>
 </table>
  *@
-
+ @model IEnumerable<RequestMasterVacation>
 <div class="main">
   
     <main class="p-3">
@@ -79,71 +79,41 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th scope="col">Id</th>
                             <th scope="col">Employee Name</th>
                             <th scope="col">Request Date</th>
                             <th scope="col">Vacations</th>
-                            <th scope="col">Comments</th>
+
                             <th scope="col">Approve</th>
                             <th scope="col">Events</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                            <td>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td >@item.Id</td>
+                                <td>@item.Employee?.Name</td>
+                                <td>@item.DateApprove</td>
+                                <td>@item.VacationType?.Name</td>
+                                <td>
 
 
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="@item.Approve">
 
 
-                            </td>
-                            <td>
-                                <a class="btn btn-info" href="EditVacationRequest.html">Edit</a>
-                                <a class="btn btn-danger" href="EditVacationRequest.html">Delete</a>
-
-
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>fat</td>
-                            <td>
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-
-                            </td>
-                            <td>
-
-
-                                <a class="btn btn-info" href="EditVacationRequest.html">Edit</a>
-                                <a class="btn btn-danger" href="EditVacationRequest.html">Delete</a>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>twitter</td>
-                            <td>
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-
-                            </td>
-                            <td>
-
-                                <a class="btn btn-info" href="EditVacationRequest.html">Edit</a>
-                                <a class="btn btn-danger" href="EditVacationRequest.html">Delete</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-info" asp-route-id="@item.Id" >Edit</a>
+                                    <a class="btn btn-danger" asp-route-id="@item.Id"  >Delete</a>
 
 
 
+                                </td>
+                            </tr>
+                        }
 
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

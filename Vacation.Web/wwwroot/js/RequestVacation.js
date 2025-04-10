@@ -39,11 +39,11 @@ function getVacationType(){
         method: 'GET',
         success: (data) => {
             let vacationType = '';
-            vacationType += `<option selected>select vacation type${data.length}</option>`;
+            vacationType += `<option value="" selected>Select Vacation Types (${data.length}) </option>`;
             for (i in data) {
                 vacationType += `<option 
                 value="${data[i].id}"
-                style="background-color:${data[i].color}">${data[i].name}</option>`;
+                style="background-color:${data[i].color}">${data[i].name}-----Day (${data[i].numberOfDays})</option>`;
 
             }
             $("#vacationType").html(vacationType);

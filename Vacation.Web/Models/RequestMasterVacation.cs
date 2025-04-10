@@ -8,11 +8,11 @@ namespace Vacation.Web.Models
 
         [ForeignKey("Employee")]
         public int EmpId { get; set; }
-        public Employee Employee { get; set; }
+        public Employee? Employee { get; set; }
 
         [ForeignKey("VacationType")]
         public int VacationTypeId { get; set; }
-        public VacationType VacationType { get; set; }
+        public VacationType? VacationType { get; set; }
 
 
         [DisplayFormat(DataFormatString ="{0:dd:MM:yyyy}")]
@@ -26,6 +26,6 @@ namespace Vacation.Web.Models
         public DateTime DateApprove { get; set; }
 
         public string? Notes { get; set; }
-        public List<RequestDetailsVacation> RequestDetailsVacation { get; set; }=new List<RequestDetailsVacation>();
+        public List<RequestDetailsVacation>? RequestDetailsVacation { get; set; }=new List<RequestDetailsVacation>();
     }
 }

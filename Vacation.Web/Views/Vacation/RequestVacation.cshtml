@@ -61,77 +61,98 @@
 }
  *@
 
-<div class="main">
-    
-    <main class="p-3">
-        <div class="container-fluid">
-            <div class="mb-3 text-center">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">Enter Name</span>
+ @model Vacation.Web.Models.RequestDetailsVacation
+<form asp-action="RequestVacation" asp-asp-controller="Vacation" method="post">
+
+    <div class="main">
+
+        <main class="p-3">
+            <div class="container-fluid">
+                <div class="mb-3 text-center">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3">Enter Name</span>
+                        </div>
+                        <input type="text" class="form-control" name="txtemp" id="txtemp">
+                        <button type="button" class="btn btn-success" onclick="getEmp()">Search</button>
+
+
+
+                        <select class="form-select" id="selectemp" asp-for="MasterVacation.EmpId">
+                            <option selected>No Employee Exist</option>
+
+                        </select>
+
                     </div>
-                    <input type="text" class="form-control" name="txtemp" id="txtemp">
-                    <button type="button" class="btn btn-success" onclick="getEmp()">Search</button>
 
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Start Date</span>
+                        </div>
 
+                        <input type="date" class="form-control" asp-for="MasterVacation.From">
 
-                    <select class="form-select" id="selectemp">
-                        <option selected>Open this select menu</option>
-                      
-                    </select>
-
-                </div>
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">Start Date</span>
-                    </div>
-
-                    <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">End Date</span>
-                    </div>
-                    <input type="date" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-
-
-                </div>
-
-                <div class="input-group m-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Saturday
-                        </label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">End Date</span>
+                        </div>
+                        <input type="date" class="form-control" asp-for="MasterVacation.To">
 
 
                     </div>
-                   
-                
-                </div>
-                <div class="input-group mt-3">
-                    <select class="form-select" aria-label="Default select example" id="vacationType">
-                        @* <option   selected>Open this select vacation type</option> *@
-                     
-                    </select>
+
+                    <div class="input-group m-3">
+
+                        @{
+                            DayOfWeek day;
+
+                            @for (int i = 0; i < 7; i++)
+                            {
+                                day = (DayOfWeek)i;
+
+
+
+
+
+                                <div class="px-3">
+
+                                    <input type="checkbox" value="@i" id="@day" name="days" class="form-check-input" />
+                                    <label for=" @day"> @day</label>
+
+                                </div>
+
+
+                            }
+                        }
+
+
+                    </div>
+                    <div class="input-group mt-3">
+                        <select class="form-select" aria-label="Default select example" asp-for="MasterVacation.VacationTypeId" id="vacationType">
+                            @* <option   selected>Open this select vacation type</option> *@
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Notes</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="MasterVacation.Notes" rows="3"></textarea>
+                    </div>
+
+
+
 
                 </div>
-
-
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Notes</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-
-
-
-
+                <input type="submit" value="Save" class="btn btn-success" />
+            
             </div>
-            <a  class="btn btn-success">Save</a>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
+ </form>
+
 
 
 
