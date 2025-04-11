@@ -8,6 +8,16 @@ namespace Vacation.Web.Models
         {
             
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //GetReportViewModel Name Of Model
+
+            modelBuilder.Entity<GetReportViewModel>().HasNoKey().ToSqlQuery("GetReportViewModel");
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<GetReportViewModel>ReportViewModels { get; set; }
         public DbSet<Department> departments { get; set; }
         public DbSet<Employee> employees { get; set; }
 
